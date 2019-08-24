@@ -26,7 +26,7 @@
 
 			<div class="page-ms">
 				<p class="page-msg"> Oops, the page you're looking for Disappeared </p>
-				<button class="go-back"><a href="{{route('index')}}">Go Back Home</a></button>
+				<button class="go-back"><a href="{{route('home')}}">Go Back Home</a></button>
 			</div>
 		</div>
 	</div>

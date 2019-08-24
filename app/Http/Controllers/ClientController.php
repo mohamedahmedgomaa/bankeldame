@@ -28,7 +28,6 @@ class ClientController extends Controller
             $record->is_active = 1;
             $update = $record->update(['is_active' => $record->is_active]);
         }
-        //dd($record);
         return back();
     }
 

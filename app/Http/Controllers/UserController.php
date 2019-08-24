@@ -107,7 +107,6 @@ class UserController extends Controller
             'new-password' => 'required|string|min:6|confirmed',
         ]);
 
-        //Change Password
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
@@ -130,7 +129,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name'      =>'required',
             'email'     =>'required|email|unique:users,email,'.$id,
-            'password'  =>'sometimes|nullable|confirmed|min:8',
+            'password'  =>'sometimes|nullable|confirmed',
             'roles_list' => 'required'
         ], [
             'name.required' => 'Name is Required',
@@ -139,8 +138,12 @@ class UserController extends Controller
             'roles_list.required' => 'Roles List Id is Required'
         ]);
         $records->roles()->sync((array) $request->input('roles_list'));
-        $request->merge(['password'=>bcrypt($request->password)]);
-        $records->update($request->all());
+        $records->update($request->except('password'));
+        if (request()->input('password')) {
+//            dd($request->password);
+            $records->update(['password'=>bcrypt($request->password)]);
+        }
+
         flash()->success('Edited');
         return redirect(route('user.index'));
     }

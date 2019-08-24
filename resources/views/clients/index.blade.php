@@ -74,13 +74,13 @@
                                                     <td>{{$record->city->governorate->name}}</td>
                                                     @if($record->is_active == 1)
                                                     <td class="text-center">
-                                                        {!! Form::open([
-                                                            'action' => ['ClientController@is_active',$record->id],
-                                                            'method' => 'put'
-                                                        ]) !!}
-                                                        <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Active</button>
-                                                        {!! Form::close() !!}
-                                                    </td>
+                                                            {!! Form::open([
+                                                                'action' => ['ClientController@is_active',$record->id],
+                                                                'method' => 'put'
+                                                            ]) !!}
+                                                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Active</button>
+                                                            {!! Form::close() !!}
+                                                        </td>
                                                     @else
                                                         <td class="text-center">
                                                             {!! Form::open([

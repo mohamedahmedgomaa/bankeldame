@@ -1,3 +1,4 @@
+@inject('category', 'App\Models\Category')
 <div class="form-group">
     <label for="title">Title</label>
     {!! Form::text('title', null , [
@@ -21,7 +22,7 @@
 
 <div class="form-group">
     <label for="category_id">Category Id</label>
-    {!! Form::select('category_id',App\Models\Category::pluck('name', 'id') , old('category_id'),
+    {!! Form::select('category_id',$category->pluck('name', 'id') , old('category_id'),
      ['class'=>'form-control', 'placeholder' => '..............']) !!}
 </div>
 

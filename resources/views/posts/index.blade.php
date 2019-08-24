@@ -1,4 +1,5 @@
 @extends('layouts.app')
+{{--@inject('category', 'App\Models\Category')--}}
 @section('page_title')
     Post
 @endsection
@@ -67,7 +68,7 @@
                                                     <td>
                                                         <img src="{{$record->image}}" alt="000000" class="img-thumbnail" width="50px" height="50px">
                                                     </td>
-                                                    <td>{{$record->category_id}}</td>
+                                                    <td>{{$record->category->name}}</td>
                                                     <td class="text-center">
                                                         <a href="{{url(route('post.edit', $record->id))}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
                                                     </td>

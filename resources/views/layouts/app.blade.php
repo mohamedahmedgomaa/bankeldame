@@ -13,10 +13,10 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/Ionicons/css/ionicons.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('adminlte/css/AdminLTE.min.css') }}">
-{{--    <link rel="stylesheet" href="{{ asset('css/rtl/AdminLTE.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/rtl/bootstrap-rtl.min.css')}}">--}}
-{{--    <link rel="stylesheet" href="{{ asset('css/rtl/rtl.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{ asset('adminlte/css/AdminLTE.min.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/rtl/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/rtl/bootstrap-rtl.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/rtl/rtl.css')}}">
 {{--    <link href="https://fonts.googleapis.com/css?family=Cairo:300,400&amp;subset=arabic,latin-ext" rel="stylesheet">--}}
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->

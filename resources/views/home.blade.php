@@ -1,61 +1,136 @@
 @extends('layouts.app')
 @inject('client', 'App\Models\Client')
+@inject('user', 'App\User')
+@inject('governorate', 'App\Models\Governorate')
+@inject('city', 'App\Models\City')
+@inject('category', 'App\Models\Category')
+@inject('post', 'App\Models\Post')
+@inject('donationRequest', 'App\Models\DonationRequest')
+@inject('contact', 'App\Models\Contact')
 @section('page_title')
-    Dashboard
+    الصفحه الرئيسيه
 @endsection
 @section('small_title')
-    Statistic
+    الاحصائيات
 @endsection
 @section('content')
 
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                  <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
                     <div class="info-box-content">
-                      <span class="info-box-text">Clients</span>
-                      <span class="info-box-number">{{ $client->count() }}</span>
+                        <h4 class="info-box-text">عدد المسؤولين</h4>
+                        <span class="info-box-number">{{ $user->count() }}</span>
                     </div>
                     <!-- /.info-box-content -->
-                  </div>
-                  <!-- /.info-box -->
                 </div>
+                <!-- /.info-box -->
             </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
 
-            <!-- Default box -->
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد المحافظات</h4>
+                        <span class="info-box-number">{{ $governorate->count() }}</span>
                     </div>
+                    <!-- /.info-box-content -->
                 </div>
-                <div class="box-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    Footer
-                </div>
-                <!-- /.box-footer-->
+                <!-- /.info-box -->
             </div>
-            <!-- /.box -->
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-blue"><i class="fa fa-flag-o"></i></span>
 
-        </section>
-        <!-- /.content -->
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد المدن</h4>
+                        <span class="info-box-number">{{ $city->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="ion ion-person-add"></i></span>
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد العملاء</h4>
+                        <span class="info-box-number">{{ $client->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon fc-bgevent-container"><i class="fa fa-filter"></i></span>
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد الاقسام</h4>
+                        <span class="info-box-number">{{ $category->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-list"></i></span>
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد المقالات</h4>
+                        <span class="info-box-number">{{ $post->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-shopping-cart"></i></span>
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد الطلبات</h4>
+                        <span class="info-box-number">{{ $donationRequest->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-comments-o"></i></span>
+
+                    <div class="info-box-content">
+                        <h4 class="info-box-text">عدد الشكاوى والاقترحات</h4>
+                        <span class="info-box-number">{{ $contact->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+    </section>
 @endsection
