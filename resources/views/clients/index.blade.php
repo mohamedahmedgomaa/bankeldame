@@ -46,16 +46,16 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Number Phone</th>
-                                                    <th>Bate of Birth</th>
-                                                    <th>Last Donation Data</th>
-                                                    <th>Brood Type</th>
-                                                    <th>City</th>
-                                                    <th>Governorate</th>
-                                                    <th>Is Active</th>
-                                                    <th class="text-center">Delete</th>
+                                                    <th>الاسم</th>
+                                                    <th>البريد الالكترونى</th>
+                                                    <th>رقم الهاتف</th>
+                                                    <th>تاريخ الميلاد</th>
+                                                    <th>تاريج التبرع الاخير</th>
+                                                    <th>نوع فصيله الدم</th>
+                                                    <th>المدينه</th>
+                                                    <th>المحافظه</th>
+                                                    <th class="text-center">التفاعل  !!</th>
+                                                    <th class="text-center">حذف</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -68,8 +68,7 @@
                                                     <td>{{$record->date_of_birth}}</td>
                                                     <td>{{$record->last_donation_data}}</td>
                                                     <td>{{$record->brood_type_id}}</td>
-{{--                                                    <td>{{$record->broodtype->name}}</td> --}}
-{{--                                                    @if($record->activate = 1) {<td>activate</td>} else {<td>de activate</td>} --}}
+{{--                                                    <td>{{$record->broodtype_id}}</td> --}}
                                                     <td>{{$record->city->name}}</td>
                                                     <td>{{$record->city->governorate->name}}</td>
                                                     @if($record->is_active == 1)
@@ -78,7 +77,7 @@
                                                                 'action' => ['ClientController@is_active',$record->id],
                                                                 'method' => 'put'
                                                             ]) !!}
-                                                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Active</button>
+                                                            <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> متفاعل</button>
                                                             {!! Form::close() !!}
                                                         </td>
                                                     @else
@@ -87,7 +86,7 @@
                                                                 'action' => ['ClientController@is_active',$record->id],
                                                                 'method' => 'put'
                                                             ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i> De Active</button>
+                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i> غير متفاعل</button>
                                                             {!! Form::close() !!}
                                                         </td>
                                                     @endif
@@ -96,7 +95,8 @@
                                                             'action' => ['ClientController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                        <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

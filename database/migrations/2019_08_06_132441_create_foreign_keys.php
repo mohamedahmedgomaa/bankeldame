@@ -20,8 +20,8 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('cities', function(Blueprint $table) {
 			$table->foreign('governorate_id')->references('id')->on('governorates')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('setnull')
+						->onUpdate('setnull');
 		});
 		Schema::table('posts', function(Blueprint $table) {
 			$table->foreign('category_id')->references('id')->on('categories')
@@ -30,8 +30,8 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('notifications', function(Blueprint $table) {
 			$table->foreign('donation_request_id')->references('id')->on('donation_requests')
-						->onDelete('cascade')
-						->onUpdate('cascade');
+						->onDelete('setnull')
+						->onUpdate('setnull');
 		});
 		Schema::table('client_notification', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')

@@ -143,7 +143,6 @@ class UserController extends Controller
 //            dd($request->password);
             $records->update(['password'=>bcrypt($request->password)]);
         }
-
         flash()->success('Edited');
         return redirect(route('user.index'));
     }

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('page_title')
-    City
+    المدن
 @endsection
 @section('small_title')
-    city
+    مدينه
 @endsection
 @section('content')
 
@@ -13,7 +13,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">list of Cities</h3>
+                <h3 class="box-title">قائمه المدن</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -37,7 +37,7 @@
 {{--                                                        aria-controls="example1"></label></div>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                                <a href="{{url(route('city.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> New City</a>
+                                <a href="{{url(route('city.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> اضافه مدينه</a>
                                 <br>
                                 @include('flash::message')
                                 <br>
@@ -48,11 +48,10 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Governorate id</th>
-                                                    <th class="text-center">Edit</th>
-                                                    <th class="text-center">Delete</th>
-
+                                                    <th>الاسم</th>
+                                                    <th>المحافظه</th>
+                                                    <th class="text-center">تعديل</th>
+                                                    <th class="text-center">حذف</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -69,7 +68,8 @@
                                                             'action' => ['CityController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                        <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

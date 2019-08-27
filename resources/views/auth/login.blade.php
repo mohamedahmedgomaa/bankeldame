@@ -73,7 +73,7 @@
 
         <!-- /.social-auth-links -->
 
-        <a href="{{ url('forgot/password') }}">I forgot my password</a><br>
+        <a href="{{ url('password/reset') }}">I forgot my password</a><br>
 
     </div>
     <!-- /.login-box-body -->

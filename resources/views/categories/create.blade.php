@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @inject('model', 'App\Models\Governorate')
 @section('page_title')
-    Create Category
+    اضافه قسم
 @endsection
 @section('small_title')
-    category
+    قسم
 @endsection
 @section('content')
 
@@ -14,7 +14,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Create Category</h3>
+                <h3 class="box-title">اضافه قسم</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"

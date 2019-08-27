@@ -77,7 +77,7 @@
     </li>
 
     <li>
-        <a href="{{url(route('contact.index'))}}"><i class="fa fa-circle-o text-red"></i> <span>Contact Us</span></a>
+        <a href="{{url(route('contact.index'))}}"><i class="fa fa-phone text-red"></i> <span>تواصل معنا</span></a>
     </li>
 
     <li>
@@ -85,7 +85,7 @@
     </li>
 
     <li>
-        <a href="{{url(route('getChangePassword'))}}"><i class="fa fa-pinterest-p text-red"></i> <span>Change Password</span></a>
+        <a href="{{url(route('getChangePassword'))}}"><i class="fa fa-map-pin text-red"></i> <span>تغيير كلمه المرور</span></a>
     </li>
 
 </ul>

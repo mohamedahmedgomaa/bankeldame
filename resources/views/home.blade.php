@@ -36,7 +36,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-map-marker"></i></span>
 
                     <div class="info-box-content">
                         <h4 class="info-box-text">عدد المحافظات</h4>
@@ -92,7 +92,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-list"></i></span>
+                    <span class="info-box-icon bg-yellow"><i class="fa fa fa-comments-o"></i></span>
 
                     <div class="info-box-content">
                         <h4 class="info-box-text">عدد المقالات</h4>
@@ -106,10 +106,10 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-shopping-cart"></i></span>
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-heart"></i></span>
 
                     <div class="info-box-content">
-                        <h4 class="info-box-text">عدد الطلبات</h4>
+                        <h4 class="info-box-text">عدد التبرعات</h4>
                         <span class="info-box-number">{{ $donationRequest->count() }}</span>
                     </div>
                     <!-- /.info-box-content -->
@@ -120,7 +120,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-comments-o"></i></span>
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-phone"></i></span>
 
                     <div class="info-box-content">
                         <h4 class="info-box-text">عدد الشكاوى والاقترحات</h4>

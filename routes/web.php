@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::group(['middleware' => ['auth','auto-check-permission']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('governorate', 'GovernorateController');

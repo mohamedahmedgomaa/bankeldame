@@ -66,7 +66,8 @@
                                                     </td>
                                                     <td class="text-center">
                                                         {!! Form::open(['action' => ['RoleController@destroy',$record->id],'method' => 'delete']) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                        <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                            <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

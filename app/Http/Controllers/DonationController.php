@@ -21,8 +21,8 @@ class DonationController extends Controller
     public function show($id)
     {
         //
-        $products = DonationRequest::findOrFail($id);
-        return view('donations.show', compact('products'));
+        $donations = DonationRequest::findOrFail($id);
+        return view('donations.show', compact('donations'));
     }
 
     /**

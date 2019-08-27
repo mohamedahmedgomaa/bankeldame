@@ -3,27 +3,27 @@
 $roles = $role->pluck('display_name', 'id')->toArray();
 ?>
 <div class="form-group">
-    <label for="name">Name</label>
+    <label for="name">الاسم</label>
     {!! Form::text('name', null , ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="email">Email</label>
+    <label for="email">البريد الالكترونى</label>
     {!! Form::email('email', null, ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">كلمه المرور</label>
     {!! Form::password('password', ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="password_confirmation">Password Confirmation</label>
+    <label for="password_confirmation">تاكيد كلمه المرور</label>
     {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
 </div>
 
 <div class="form-group">
-    <label for="roles_list">Roles List</label>
+    <label for="roles_list">قائمه الرتب</label>
     {!! Form::select('roles_list[]',$roles,null, [
     'class'=>'form-control select2',
     'multiple' => 'multiple'
@@ -31,5 +31,5 @@ $roles = $role->pluck('display_name', 'id')->toArray();
 </div>
 
 <div class="form-group">
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit">اضافه</button>
 </div>

@@ -1,73 +1,112 @@
 @extends('layouts.app')
 @section('page_title')
-    Donation Request
+    عرض طلب التبرع
 @endsection
 @section('small_title')
-    donation
+    طلب التبرع
 @endsection
 @section('content')
-    <div class="row" style="margin-top: 40px;margin-bottom: -1px">
-        <div class="col-lg-offset-3">
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Name: </span>
-                <span style="margin-left: 215px;    font-size: 24px;">{{$products->name}}</span>
-            </div>
+    @push('js')
+        <!-- Location picker -->
+        <script type="text/javascript"
+                src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCxQGsoLVUxSCQm2Hz_0vuJxyhn98gZrKQ'></script>
+        <script src="{{ asset('') }}adminlte/js/locationpicker.jquery.js"></script>
+        <?php
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Age: </span>
-                <span style="margin-left: 240px;    font-size: 24px;">{{$products->age}}</span>
-            </div>
+        $lat = !empty($donations->lat) ? $donations->lat:'30.06303689611116';
+        $lng = !empty($donations->lng) ? $donations->lng:'31.23264503479004';
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Blood Type id: </span>
-                <span style="margin-left: 126px;    font-size: 24px;">{{$products->brood_type_id}}</span>
-            </div>
+        ?>
+        <script>
+            $('#us1').locationpicker({
+                location: {
+                    latitude: {{ $lat }},
+                    longitude: {{ $lng }},
+                },
+                radius: 300,
+                markerIcon: '{{asset('uploads/1.png')}}',
+                inputBinding: {
+                    latitudeInput: $('#lat'),
+                    longitudeInput: $('#lng'),
+                    // radiusInput: $('#us2-radius'),
+                    locationNameInput: $('#us2-address')
+                }
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Number of Blood bags: </span>
-                <span style="margin-left: 25px;    font-size: 24px;">{{$products->number_of_blood_bags}}</span>
-            </div>
+            });
+        </script>
+    @endpush
+    <div class="container">
+        <div class="row">
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Hospital Name</span>
-                <span style="margin-left: 125px;    font-size: 24px;">{{$products->hospital_name}}</span>
-            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">عرض طلب التبرع</div>
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">hospital direction </span>
-                <span style="margin-left: 90px;    font-size: 24px;">latitude: {{$products->lat}} ,longitude: {{$products->lng}}</span>
-            </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">city</span>
-                <span style="margin-left: 255px;    font-size: 24px;">{{$products->city->name}}</span>
-            </div>
+                                        <tbody>
+                                        <tr>
+                                            <th>اسم المريض</th>
+                                            <td>{{$donations->name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>العمر</th>
+                                            <td>{{$donations->age}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>فصيله الدم</th>
+                                            <td>{{$donations->brood_type_id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>عدد اكياس الدم المطلوبه</th>
+                                            <td>{{$donations->number_of_blood_bags}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>اسم المستشفى</th>
+                                            <td>{{$donations->hospital_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>المدينه</th>
+                                            <td>{{$donations->city->name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>المحافظه</th>
+                                            <td>{{$donations->city->governorate->name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>رقم الهاتف</th>
+                                            <td>{{$donations->number_phone}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>الملاحظات</th>
+                                            <td>{{$donations->notes}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>اسم العميل</th>
+                                            <td>{{$donations->client->name}}</td>
+                                        </tr>
+{{--                                        <tr>--}}
+{{--                                            <th>مكان المستشفى</th>--}}
+{{--                                            <td>latitude: {{$donations->lat}} ,longitude: {{$donations->lng}}</td>--}}
+{{--                                        </tr>--}}
+                                        {{--                         الخريطه                     --}}
 
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Governorate: </span>
-                <span style="margin-left: 140px;    font-size: 24px;">{{$products->city->governorate->name}}</span>
-            </div>
-
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Number Phone</span>
-                <span style="margin-left: 120px;    font-size: 24px;">{{$products->number_phone}}</span>
-            </div>
-
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Notes: </span>
-                <span style="margin-left: 220px;    font-size: 24px;"> {{$products->notes}}</span>
-            </div>
-
-            <div>
-                <span class="text-yellow" style="font-size: 28px">Client: </span>
-                <span style="margin-left: 220px;    font-size: 24px;">{{$products->client->name}}</span>
+                                        </tbody>
+                                    </table>
+                                    <div id="us1" style="width: 100%; height: 400px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
-
-
-
-
-
 
 @endsection

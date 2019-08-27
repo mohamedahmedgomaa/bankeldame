@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('page_title')
-    Donation Request
+    التبرعات
 @endsection
 @section('small_title')
-    donation
+    تبرع
 @endsection
 @section('content')
 
@@ -12,7 +12,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">list of Donation Request</h3>
+                <h3 class="box-title">قائمه التبرعات</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -46,20 +46,18 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>age</th>
-                                                    <th>brood_type_id</th>
-                                                    <th>number_of_blood_bags</th>
-                                                    <th>hospital_name</th>
-                                                    <th>lat</th>
-                                                    <th>lng</th>
-                                                    <th>city_id</th>
-                                                    <th>number_phone</th>
-                                                    <th>notes</th>
-                                                    <th>client_id</th>
-                                                    <th class="text-center">Show</th>
-                                                    <th class="text-center">Delete</th>
-
+                                                    <th>الاسم</th>
+                                                    <th>العمر</th>
+                                                    <th>نوع الفصيله</th>
+                                                    <th>عدد اكياس الدم</th>
+                                                    <th>اسم المستشفى</th>
+                                                    <th>مكان المستشفى</th>
+                                                    <th>المدينه</th>
+                                                    <th>رقم الهاتف</th>
+                                                    <th>الملاحظات</th>
+                                                    <th>العميل</th>
+                                                    <th class="text-center">عرض طلب التبرع</th>
+                                                    <th class="text-center">حذف</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -71,8 +69,7 @@
                                                     <td>{{$record->brood_type_id}}</td>
                                                     <td>{{$record->number_of_blood_bags}}</td>
                                                     <td>{{$record->hospital_name}}</td>
-                                                    <td>{{$record->lat}}</td>
-                                                    <td>{{$record->lng}}</td>
+                                                    <td>{{$record->lat}} , {{$record->lng}}</td>
                                                     <td>{{$record->city_id}}</td>
                                                     <td>{{$record->number_phone}}</td>
                                                     <td>{{$record->notes}}</td>
@@ -90,7 +87,8 @@
                                                             'action' => ['DonationController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                        <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

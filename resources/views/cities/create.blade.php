@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @inject('model', 'App\Models\City')
 @section('page_title')
-    Create City
+    اضافه مدينه
 @endsection
 @section('small_title')
-    city
+    مدينه
 @endsection
 @section('content')
 
@@ -14,7 +14,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Create city</h3>
+                <h3 class="box-title">اضافه مدينه</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"

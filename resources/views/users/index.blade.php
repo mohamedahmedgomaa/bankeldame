@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('page_title')
-    User
+    المستخدمين
 @endsection
 @section('small_title')
-    user
+    المستخدمين
 @endsection
 @section('content')
 
@@ -12,7 +12,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">list of Users</h3>
+                <h3 class="box-title"> قائمه المستخدمين</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -36,7 +36,7 @@
 {{--                                                        aria-controls="example1"></label></div>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                                <a href="{{url(route('user.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> New Users</a>
+                                <a href="{{url(route('user.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> اضافه مستخدم</a>
                                 <br>
                                 @include('flash::message')
                                 <br>
@@ -47,11 +47,11 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-{{--                                                    <th>Roles List</th>--}}
-                                                    <th class="text-center">Edit</th>
-                                                    <th class="text-center">Delete</th>
+                                                    <th>الاسم</th>
+                                                    <th>البريد الالكترونى</th>
+                                                    <th>رتب المستخدم</th>
+                                                    <th class="text-center">تعديل</th>
+                                                    <th class="text-center">حذف</th>
 
                                                 </tr>
                                                 </thead>
@@ -61,7 +61,11 @@
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$record->name}}</td>
                                                     <td>{{$record->email}}</td>
-{{--                                                    <td>{{$record->roles_list}}</td>--}}
+                                                    <td>
+                                                        @foreach($record->roles as $role)
+                                                            <div class="btn btn-bitbucket">{{$role->display_name}}</div>
+                                                        @endforeach
+                                                    </td>
                                                     <td class="text-center">
                                                         <a href="{{url(route('user.edit', $record->id))}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
                                                     </td>
@@ -70,7 +74,8 @@
                                                             'action' => ['UserController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                            <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

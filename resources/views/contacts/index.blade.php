@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('page_title')
-    Contact Us
+    تواصل معنا
 @endsection
 @section('small_title')
-    contactus
+    معنا
 @endsection
 @section('content')
 
@@ -12,7 +12,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">list of Contact Us</h3>
+                <h3 class="box-title">قائمه التواصل معنا</h3>
 
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -46,13 +46,12 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Number Phone</th>
-                                                    <th>Title</th>
-                                                    <th>Message</th>
-                                                    <th class="text-center">Delete</th>
-
+                                                    <th>الاسم</th>
+                                                    <th>البريد الالكترونى</th>
+                                                    <th>رقم الهاتف</th>
+                                                    <th>العنوان</th>
+                                                    <th>الرساله</th>
+                                                    <th class="text-center">حذف</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -69,7 +68,8 @@
                                                             'action' => ['ContactController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                        <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

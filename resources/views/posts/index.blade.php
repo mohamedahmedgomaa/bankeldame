@@ -1,29 +1,29 @@
 @extends('layouts.app')
 {{--@inject('category', 'App\Models\Category')--}}
 @section('page_title')
-    Post
+    المقالات
 @endsection
 @section('small_title')
-    post
+    مقال
 @endsection
 @section('content')
-
+<script>
+    $(document).ready(function() {
+        $('.member').click(function() {
+            if (confirm('Are you sure?')) {
+                var url = $(this).attr('href');
+                $('#content').load(url);
+            }
+        });
+    });
+</script>
 
     <!-- Main content -->
     <section class="content">
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">list of Posts</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                            title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip"
-                            title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                <h3 class="box-title">قائمه المقالات</h3>
             </div>
             <div class="box-body">
                 @if(count($records))
@@ -38,7 +38,7 @@
 {{--                                                        aria-controls="example1"></label></div>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                                <a href="{{url(route('post.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> New Post</a>
+                                <a href="{{url(route('post.create'))}}" class="btn btn-primary"><i class="fa fa-plus"></i> مقال جديد</a>
                                 <br>
                                 @include('flash::message')
                                 <br>
@@ -49,12 +49,12 @@
                                                 <thead>
                                                 <tr role="row">
                                                     <th>#</th>
-                                                    <th>Title</th>
-                                                    <th>Content</th>
-                                                    <th>image</th>
-                                                    <th>Category id</th>
-                                                    <th class="text-center">Edit</th>
-                                                    <th class="text-center">Delete</th>
+                                                    <th>العنوان</th>
+                                                    <th>المحتوى</th>
+                                                    <th>الصوره</th>
+                                                    <th>القسم</th>
+                                                    <th class="text-center">تعديل</th>
+                                                    <th class="text-center">حذف</th>
 
                                                 </tr>
                                                 </thead>
@@ -77,7 +77,8 @@
                                                             'action' => ['PostController@destroy',$record->id],
                                                             'method' => 'delete'
                                                         ]) !!}
-                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+{{--                                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>--}}
+                                                        <button class="member" type="submit" onclick="return confirm('Are you sure？')"><i class="fa fa-trash-o"></i></button>
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>

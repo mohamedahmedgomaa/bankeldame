@@ -231,9 +231,6 @@ class MainController extends Controller
                 $q->where('blood_types.id', $donationRequests->brood_type_id);
             })->pluck('clients.id')->toArray();
         $send = null;
-//        dd($clientsIds);
-//        $donationRequests->save();
-//        dd($clientsIds);
         if (count($clientsIds)) {
             $notification = $donationRequests->notifications()->create([
                 'title' => 'احتاج متبرع لفصيله',
