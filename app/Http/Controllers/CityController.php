@@ -43,12 +43,12 @@ class CityController extends Controller
             'name' => 'required',
             'governorate_id' => 'required|numeric',
         ], [
-            'name.required' => 'Name is Required',
-            'governorate_id.required' => 'Governorate Id is Required'
+            'name.required' => 'يجب كتابه الاسم',
+            'governorate_id.required' => 'يجب ادخال المحافظه'
         ]);
 
         $record = City::create($request->all());
-        flash()->success("Success");
+        flash()->success("تمت الاضافه بنجاح");
         return redirect(route('city.index'));
     }
 
@@ -87,7 +87,7 @@ class CityController extends Controller
         //
         $records = City::findOrFail($id);
         $records->update($request->all());
-        flash()->success('Edited');
+        flash()->success('تم التعديل بنجاح');
         return redirect(route('city.index'));
     }
 
@@ -101,7 +101,7 @@ class CityController extends Controller
     {
         $record = City::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

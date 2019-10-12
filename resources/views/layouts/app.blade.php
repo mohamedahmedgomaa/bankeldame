@@ -79,12 +79,12 @@
                                 </p>
                             </li>
                             <li class="user-footer">
-                                <div class="pull-right">
+                                <div class="pull-right btn btn-danger">
 
-                                    <a href="{{ route('logout') }}"
+                                    <a href="{{ route('logout') }}" style="color: white"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-btn fa-sign"></i> Logout
+                                        <i class="fa fa-btn fa-sign"></i> تسجيل الخروج
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                           style="display: none;">
@@ -135,7 +135,7 @@
                 <small>@yield('small_title')</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li class="active">@yield('small_title')</li>
             </ol>
         </section>

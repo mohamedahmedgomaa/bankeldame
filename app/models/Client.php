@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-//use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 /**
  * @method static where(string $string, $number_phone)
  */
 class Client extends Authenticatable {
-
+    use Notifiable;
 	protected $table = 'clients';
 	public $timestamps = true;
 	protected $fillable = array('name', 'email', 'date_of_birth', 'brood_type_id', 'city_id', 'last_donation_data',

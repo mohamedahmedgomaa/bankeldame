@@ -35,7 +35,7 @@ class DonationController extends Controller
     {
         $record = DonationRequest::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

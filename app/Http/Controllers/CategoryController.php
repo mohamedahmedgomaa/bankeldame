@@ -42,11 +42,11 @@ class CategoryController extends Controller
         $this->validate($request, [
             'name' => 'required',
         ], [
-            'name.required' => 'Name is Required',
+            'name.required' => 'يجب كتابه الاسم',
         ]);
 
         $record = Category::create($request->all());
-        flash()->success("Success");
+        flash()->success("تمت الاضافه بنجاح");
         return redirect(route('category.index'));
     }
 
@@ -85,7 +85,7 @@ class CategoryController extends Controller
         //
         $records = Category::findOrFail($id);
         $records->update($request->all());
-        flash()->success('Edited');
+        flash()->success('تم التعديل بنجاح');
         return redirect(route('category.index'));
     }
 
@@ -99,7 +99,7 @@ class CategoryController extends Controller
     {
         $record = Category::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

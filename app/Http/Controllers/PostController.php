@@ -45,10 +45,10 @@ class PostController extends Controller
             'image' => 'required',
             'category_id' => 'required|numeric',
         ], [
-            'title.required' => 'Title is Required',
-            'content.required' => 'Content is Required',
-            'image.required' => 'Image is Required',
-            'category_id.required' => 'Category Id is Required'
+            'title.required' => 'يجب كتابه العنوان',
+            'content.required' => 'يجب كتابه المحتوى',
+            'image.required' => 'يجب اضافه الصوره',
+            'category_id.required' => 'يجب اضافه القسم'
         ]);
 
         $record = Post::create($request->all());
@@ -61,7 +61,7 @@ class PostController extends Controller
             $record->image = 'uploads/post/'.$logo_new_name;
             $record->save();
         }
-        flash()->success("Success");
+        flash()->success("تمت الاضافه بنجاح");
         return redirect(route('post.index'));
     }
 
@@ -108,7 +108,7 @@ class PostController extends Controller
             $records->image = 'uploads/post/'.$logo_new_name;
             $records->save();
         }
-        flash()->success('Edited');
+        flash()->success('تم التعديل بنجاح');
         return redirect(route('post.index'));
     }
 
@@ -122,7 +122,7 @@ class PostController extends Controller
     {
         $record = Post::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

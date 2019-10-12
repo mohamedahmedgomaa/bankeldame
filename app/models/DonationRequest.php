@@ -12,7 +12,7 @@ class DonationRequest extends Model {
 
 	public function bloodtype()
 	{
-		return $this->belongsTo('App\Models\BloodType');
+		return $this->belongsTo('App\Models\BloodType','brood_type_id');
 	}
 
 	public function notifications()

@@ -11,6 +11,7 @@ class CreateClientPostTable extends Migration {
 		Schema::create('client_post', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
+//            $table->boolean('is_like');
 			$table->integer('client_id')->unsigned();
 			$table->integer('post_id')->unsigned();
 		});

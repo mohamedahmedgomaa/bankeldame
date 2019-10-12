@@ -23,6 +23,7 @@ class SettingController extends Controller
             'google_plus' => 'required',
             'whats_app' => 'required',
             'instagram' => 'required',
+            'text' => 'required|nullable',
             'you_tube' => 'required',
             'twitter' => 'required',
             'facebook' => 'required',
@@ -52,6 +53,7 @@ class SettingController extends Controller
         $setting->email = $request->email;
         $setting->google_plus = $request->google_plus;
         $setting->whats_app = $request->whats_app;
+        $setting->text = $request->text;
         $setting->instagram = $request->instagram;
         $setting->you_tube = $request->you_tube;
         $setting->twitter = $request->twitter;
@@ -59,7 +61,7 @@ class SettingController extends Controller
         $setting->android_app_url = $request->android_app_url;
         $setting->save();
 
-        flash()->success("Success");
+        flash()->success("تم التعديل بنجاح");
         return redirect()->back();
 
 

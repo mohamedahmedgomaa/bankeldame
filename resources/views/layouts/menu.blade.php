@@ -6,8 +6,8 @@
             <i class="fa fa-dashboard"></i> <span> الصفحه الرئيسيه</span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{{url('/')}}"><i class="fa fa-circle-o"></i> الصفحه الرئيسيه</a></li>
-            <li><a href="{{url('settings')}}"><i class="fa fa-circle-o"></i> الاعدادات</a></li>
+            <li><a href="{{url(route('home'))}}"><i class="fa fa-circle-o"></i> الصفحه الرئيسيه</a></li>
+            <li><a href="{{url(route('settings'))}}"><i class="fa fa-circle-o"></i> الاعدادات</a></li>
         </ul>
     </li>
 

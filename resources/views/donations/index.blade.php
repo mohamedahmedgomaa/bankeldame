@@ -70,10 +70,10 @@
                                                     <td>{{$record->number_of_blood_bags}}</td>
                                                     <td>{{$record->hospital_name}}</td>
                                                     <td>{{$record->lat}} , {{$record->lng}}</td>
-                                                    <td>{{$record->city_id}}</td>
+                                                    <td>{{$record->city->name}}</td>
                                                     <td>{{$record->number_phone}}</td>
                                                     <td>{{$record->notes}}</td>
-                                                    <td>{{$record->client_id}}</td>
+                                                    <td>{{$record->client->name}}</td>
                                                     <td class="text-center">
                                                         {!! Form::open([
                                                             'action' => ['DonationController@show',$record->id],
@@ -102,6 +102,7 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
+                    <div class="text-center">{{$records->links()}}</div>
                 @else
                     <div class="alert alert-danger">
                         No Data

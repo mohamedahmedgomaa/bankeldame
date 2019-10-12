@@ -43,7 +43,7 @@ class ClientController extends Controller
     {
         $record = Client::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

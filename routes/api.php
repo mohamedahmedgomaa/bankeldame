@@ -22,7 +22,7 @@ Route::group(['namespace'=>'Api'], function() {
     // Main Controller
 
     Route::get('governorates', 'MainController@governorates');
-    Route::get('cities', 'MainController@cities');
+    Route::get('cities', 'MainController@cities')->name('cities');
     Route::get('settings', 'MainController@settings');
 
     // Auth Controller

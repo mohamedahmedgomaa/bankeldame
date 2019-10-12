@@ -42,13 +42,13 @@ class GovernorateController extends Controller
         $this->validate($request, [
             'name' =>'required'
         ],[
-            'name.required' => 'Name is Required'
+            'name.required' => 'يجب كتابه الاسم'
         ]);
 //        $record = new Governorate;
 //        $record->name = $request->input('name');
 //        $record->save();
         $record = Governorate::create($request->all());
-        flash()->success("Success");
+        flash()->success("تمت الاضافه بنجاح");
         return redirect(route('governorate.index'));
     }
 
@@ -87,7 +87,7 @@ class GovernorateController extends Controller
         //
         $records = Governorate::findOrFail($id);
         $records->update($request->all());
-        flash()->success('Edited');
+        flash()->success('تم التعديل بنجاح');
         return redirect(route('governorate.index'));
     }
 
@@ -101,7 +101,7 @@ class GovernorateController extends Controller
     {
         $record = Governorate::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

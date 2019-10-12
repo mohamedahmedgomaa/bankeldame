@@ -40,17 +40,24 @@ class MainController extends Controller
     }
 
 
-    public function searchCategory()
+    public function searchCategory(Request $request)
     {
-        $category = Category::with('posts')
-            ->where('name', 'like', '%' . request('search') . '%')->get();
-//        $posts = $category->posts;
-//        dd(Post::find(1)->category()->orderBy('name')->get());
-//        $product = App\Model\Product::where('title', 'like', '%' . request('search') . '%')->get();
-//        $posts = Post::with('category')->paginate(10);
-//        $posts = Post::find(1)->category()->where('name', 'like', '%' . request('search') . '%')->get();
-//        $posts = Post::with('category')->where('title', 'like', '%' . request('search') . '%')->get();
-        return responseJson(1, 'success', $category);
+        $posts = Post::with('category')->where(function ($post) use ($request) {
+            if ($request->input('category_id')) {
+                $post->where('category_id', $request->category_id);
+            }
+            if ($request->input('keyword')) {
+                $post->where(function ($posts) use ($request) {
+                    $posts->where('title', 'like', '%' . $request->keyword . '%');
+                    $posts->orWhere('content', 'like', '%' . $request->keyword . '%');
+                });
+            }
+        })->latest()->paginate(10);
+        //dd($posts);
+        if ($posts->count() == 0) {
+            return responseJson(0, 'Failed');
+        }
+        return responseJson(1, 'success', $posts);
     }
 
     public function favourites(Request $request)

@@ -23,6 +23,7 @@ class Post extends Model {
         }
         return false;
     }
+
 	public function clients()
 	{
 		return $this->belongsToMany('App\Models\Client');

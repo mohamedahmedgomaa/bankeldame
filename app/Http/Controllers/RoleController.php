@@ -45,9 +45,9 @@ class RoleController extends Controller
             'display_name' => 'required',
             'permissions_list' => 'required|array',
         ], [
-            'name.required' => 'Name is Required',
-            'display_name.required' => 'Display Name is Required',
-            'permissions_list.required' => 'Permissions List is Required',
+            'name.required' => 'يجب ادخال الاسم',
+            'display_name.required' => 'يجب ادخال الاسم المعروض',
+            'permissions_list.required' => 'يجب اختيا الصلاحيات الخاصه به',
         ]);
 
         $record = Role::create($request->all());
@@ -92,7 +92,7 @@ class RoleController extends Controller
         $records = Role::findOrFail($id);
         $records->update($request->all());
         $records->permissions()->sync($request->permissions_list);
-        flash()->success('Edited');
+        flash()->success('تم التعديل بنجاح');
         return redirect(route('role.index'));
     }
 
@@ -106,7 +106,7 @@ class RoleController extends Controller
     {
         $record = Role::findOrFail($id);
         $record->delete();
-        flash()->success('Deleted');
+        flash()->success('تم الحذف بنجاح');
         return back();
     }
 }

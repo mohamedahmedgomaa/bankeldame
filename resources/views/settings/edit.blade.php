@@ -40,9 +40,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="text">Text</label>
+                                <textarea name="text" class="form-control">{{$settings->text}}</textarea>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="google_plus">Google Plus</label>
                                 <input type="text" class="form-control" name="google_plus"  value="{{$settings->google_plus}}">
                             </div>
+
 
                             <div class="form-group">
                                 <label for="whats_app">واتس اب</label>

@@ -9,14 +9,15 @@
     @push('js')
         <!-- Location picker -->
         <script type="text/javascript"
-                src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCxQGsoLVUxSCQm2Hz_0vuJxyhn98gZrKQ'></script>
+                src='https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCURp4QTQuh4TEVwW3HHgCWdT9UJ2gTW7g'></script>
+
         <script src="{{ asset('') }}adminlte/js/locationpicker.jquery.js"></script>
-        <?php
+        @php
 
         $lat = !empty($donations->lat) ? $donations->lat:'30.06303689611116';
         $lng = !empty($donations->lng) ? $donations->lng:'31.23264503479004';
 
-        ?>
+        @endphp
         <script>
             $('#us1').locationpicker({
                 location: {

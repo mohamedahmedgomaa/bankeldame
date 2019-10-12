@@ -3,7 +3,7 @@
 
 Bank Eldame Reset Password.
 
-@component('mail::button', ['url' => 'http://ipda3.com'])
+@component('mail::button', ['url' => url(route('auth.newPassword'))])
 Reset
 @endcomponent
 
