@@ -83,7 +83,7 @@
                             <div class="form-group">
                                 <label for="logo">صوره الموقع</label>
                                 <input type="file" class="form-control-file" name="logo">
-                                <img src="{{$settings->logo}}" alt="000000" class="img-thumbnail" width="50px" height="50px">
+                                <img src="../{{$settings->logo}}" alt="000000" class="img-thumbnail" width="50px" height="50px">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-lg">تعديل</button>

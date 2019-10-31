@@ -54,6 +54,9 @@ class PostController extends Controller
         $record = Post::create($request->all());
 
         if ( $request->hasFile('image')  ) {
+            if (file_exists($record->image)) {
+                unlink($record->image);
+            }
             $logo = $request->image;
             $logo_new_name = time() . $logo->getClientOriginalName();
             $logo->move('uploads/post', $logo_new_name);
@@ -101,6 +104,9 @@ class PostController extends Controller
         $records = Post::findOrFail($id);
         $records->update($request->all());
         if ( $request->hasFile('image')  ) {
+            if (file_exists($records->image)) {
+                unlink($records->image);
+            }
             $logo = $request->image;
             $logo_new_name = time() . $logo->getClientOriginalName();
             $logo->move('uploads/post', $logo_new_name);

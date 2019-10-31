@@ -72,7 +72,7 @@ class WelcomeController extends Controller
     {
         $post = Post::findOrFail($id);
         $settings = Setting::first();
-        $posts = Post::paginate(12);
+        $posts = Post::where('category_id', $post->category_id)->get();
         return view('websites.article', compact('post','settings', 'posts'));
     }
 

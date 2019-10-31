@@ -34,6 +34,9 @@ class SettingController extends Controller
         $setting = Setting::first();
 
         if ( $request->hasFile('logo')  ) {
+            if (file_exists($setting->logo)) {
+                unlink($setting->logo);
+            }
             $logo = $request->logo;
             $logo_new_name = time() . $logo->getClientOriginalName();
             $logo->move('uploads/setting', $logo_new_name);
